@@ -1,4 +1,4 @@
   - name: Create VLAN Interface 100
-    aoscx_vlan_interface:
-      vlan_id: 100
+    arubanetworks.aoscx.aoscx_vlan_interface:
+      vlan_id: 103
       description: UPLINK_VLAN
