@@ -2,7 +2,6 @@
 - name: Download running config from AOS-CX switch
   hosts: all
   gather_facts: no
-  connection: local
 
   tasks:
     - name: Get running configuration
