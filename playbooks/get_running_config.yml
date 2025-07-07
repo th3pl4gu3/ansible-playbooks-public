@@ -6,7 +6,7 @@
 
   tasks:
     - name: Get running configuration
-      aoscx_command:
+      arubanetworks.aoscx.aoscx_command:
         commands: ["show running-config"]
       register: running_config
 
