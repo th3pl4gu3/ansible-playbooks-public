@@ -1,11 +1,4 @@
-- name: >
-    Back up running-config, then create VLAN 100, and save running-config to
-    startup-config if change was made.
-  aoscx_config:
-    backup: True
-    lines:
-      - vlan 100
-    backup_options:
-      filename: backup.cfg
-      dir_path: /home/tt/semaphore/
-    save_when: changed
+  - name: Create VLAN Interface 100
+    aoscx_vlan_interface:
+      vlan_id: 100
+      description: UPLINK_VLAN
