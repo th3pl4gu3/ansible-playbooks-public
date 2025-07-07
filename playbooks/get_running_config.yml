@@ -1,14 +1,11 @@
----
-- name: Download running config from AOS-CX switch
-  hosts: all
-  gather_facts: no
-
-  tasks:
-    - name: Get running configuration
-      arubanetworks.aoscx.aoscx_command:
-        commands: ["show running-config"]
-      register: running_config
-
-    - name: Print running configuration
-      debug:
-        var: running_config.stdout[0]
+- name: >
+    Back up running-config, then create VLAN 100, and save running-config to
+    startup-config if change was made.
+  aoscx_config:
+    backup: True
+    lines:
+      - vlan 100
+    backup_options:
+      filename: backup.cfg
+      dir_path: /home/tt/semaphore/
+    save_when: changed
