@@ -9,7 +9,6 @@
         commands: ["show running-config"]
       register: running_config
 
-    - name: Save running config to file
-      copy:
-        content: "{{ running_config.stdout[0] }}"
-        dest: "./{{ inventory_hostname }}_running_config.txt"
+    - name: Print running configuration
+      debug:
+        var: running_config.stdout[0]
